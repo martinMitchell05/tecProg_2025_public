@@ -19,7 +19,7 @@
 
 ### ejercicio 3: Calculadora de Raices Cuadradas
 
-#import math
+import math
 
 #numero = float(input("Introduce un numero: "))
 
@@ -52,4 +52,40 @@
 #else:
     #print("Insuficiente")
 
+### ejercicio 5: Conversion de Unidades
 
+#celsius = float(input("Introduce la temperatura en Celsius: "))
+
+#farenheit = (celsius*9/5)+32
+
+#print("La temperatura en Farenheit es: ", farenheit, "°F")
+
+
+### ejercicio 6: Calculo de Distancia de Viaje
+
+#velProm = float(input("Introduce la velocidad promedio en km/h: "))
+#tiempoTot = float(input("Introduce el tiempo total del viaje en h: "))
+
+#distancia = velProm*tiempoTot
+
+#print("La distancia recorrida es: ", distancia, "km")
+
+
+### ejercicio 7: Presupuesto de viaje
+
+#costoDia = float(input("Introduce el costo de alquiler por dia: "))
+#numDias = int(input("Introduce el total de dias: "))
+#presupCombustible = float(input("Introduce el presupuesto en combustible: "))
+
+#total = float((costoDia*numDias) + presupCombustible)
+
+#print("El costo total es $", total)
+
+### ejercicio 8: Volumen de cilindro
+
+r = float(input("Introduce el radio en m: "))
+h = float(input("Introduce altura en m: "))
+
+vol = math.pi*math.pow(r,2)*h
+
+print("El volumen del cilindro es: ", vol, "m^3")
