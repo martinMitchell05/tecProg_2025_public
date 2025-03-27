@@ -54,9 +54,9 @@ class Facultad:
 
 
 def main():
-    fucku = Facultad("FICH")
+    fac = Facultad("FICH")
     c1 = Carrera("Ingeniería en Informática")
-    fucku.crearCarrera(c1)
+    fac.crearCarrera(c1)
 
     a1 = Alumno("martin",46371805,dt(2005,1,3))
     c1.inscribirAlumno(a1,dt.now())
@@ -64,7 +64,7 @@ def main():
     a2 = Alumno("emanuel", 45057139, dt(2003,8,21))
     c1.inscribirAlumno(a2,dt.now())
 
-    fucku.mostrarCarrerasyAlumnos()
+    fac.mostrarCarrerasyAlumnos()
 
 
 if __name__ == "__main__":
