@@ -13,7 +13,7 @@ class Carrera:
         iter_alumnos = iter(self.c_alumnos)
         alumno = next(iter_alumnos, None)
         while alumno is not None:
-            f_egreso = alumno.fecha_egreso #tiene que llamar a un metodo
+            f_egreso = alumno.getEgreso()
             if f_egreso is not None:
                 cant_egresados += 1
                 ###llamada a metodo de Alumno
@@ -25,33 +25,37 @@ class Carrera:
 
 class Examen:
     def __init__(self, nota: float):
-        self.nota = nota
+        self._nota = nota
+
+    def getNota(self):
+        return self._nota
 
 class Alumno:
     def __init__(self, nombre: str, fecha_egreso: dt, examenes: List['Examen']):
         self.nombre = nombre
-        self.fecha_egreso = fecha_egreso
-        self.examenes = examenes
-        self.promedio = 0.0
+        self._fecha_egreso = fecha_egreso
+        self._examenes = examenes
+        self._promedio = 0.0
 
     def getPromedio(self):
 
         self.promedio_final()
 
-        return f"Alumno: {self.nombre} - Promedio: {self.promedio:.2f}"
+        return f"Alumno: {self.nombre} - Promedio: {self._promedio:.2f}"
 
     def promedio_final(self):
         # Recorro todas las NOTAS de los ALUMNOS
         acumula_notas = 0
         cant_examenes_aprobados = 0
-        for examen in self.examenes:
-            if examen.nota >= 6: #tiene que llamar a un metodo
-                acumula_notas += examen.nota
+        for examen in self._examenes:
+            if examen.getNota() >= 6:
+                acumula_notas += examen.getNota()
                 cant_examenes_aprobados += 1
         
-        self.promedio = acumula_notas / cant_examenes_aprobados
+        self._promedio = acumula_notas / cant_examenes_aprobados
 
-    
+    def getEgreso(self):
+        return self._fecha_egreso
            
 
 
