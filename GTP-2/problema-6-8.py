@@ -47,7 +47,7 @@ class Mensualizados(Trabajador):
         super().__init__(nombre, direccion, dni)
         self.salario = categoria.remu
         self.cate = categoria.cat
-        self.jefe = None
+        #self.jefe = None
     
     def es_tipo(self):
         return "Mensualizado"
@@ -66,7 +66,7 @@ class Jornalizados(Trabajador):
         self.horas = 0.0
         self.precio_hs = precioHora
         self.adicional = precioAdicional
-        self.jefe = None
+        #self.jefe = None
     
     def sumarHoras(self, hs: float):
         self.horas += hs

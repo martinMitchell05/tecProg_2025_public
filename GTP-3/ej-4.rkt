@@ -1,0 +1,1 @@
+(cdr (cdr (cdr '(a b c . x))))

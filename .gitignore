@@ -1,1 +1,7 @@
 *.pdf
+*.txt
+tec-prog-venv/
+*_cache/
+*.md
+*.sh
+*.rkt~

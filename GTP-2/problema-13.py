@@ -87,3 +87,124 @@ carrito = Carrito(productos)
 carrito.calcular_descuentos()
 
 # Principle that was vulnerated: 1. Demeter - 2. TDA - 3. SRP - 4. OCP
+
+
+class Contador_Piezas(ABC):
+    @abstractmethod
+    def contar_piezas(self):
+        pass
+
+class Contador_Piezas_Cel(Contador_Piezas):
+    def contar_piezas(self):
+        return "Piezas requeridas para reparar el celular\n"
+
+class Contador_Piezas_Tab(Contador_Piezas):
+    def contar_piezas(self):
+        return "Piezas requeridas para reparar la tablet\n"
+    
+class Contador_Piezas_Watch(Contador_Piezas):
+    def contar_piezas(self):
+        return "Piezas requeridas para reparar el smartwatch\n"
+    
+
+class Dispositivo:
+    def __init__(self, marca: str, modelo: str, pantalla: bool, cont_piezas: Contador_Piezas):
+        self.marca = marca
+        self.modelo = modelo
+        self.pantalla = pantalla
+        self.cont = cont_piezas
+
+    def contar_piezas(self):
+        return self.cont.contar_piezas()
+
+
+class Celular(Dispositivo):
+    def __init__(self, marca: str, modelo: str, pantalla: bool, contador):
+        super().__init__(marca, modelo, pantalla, contador)
+        
+
+class Tablet(Dispositivo):
+    def __init__(self, marca: str, modelo: str, pantalla: bool, lapiz: bool, contador):
+        super().__init__(marca, modelo, pantalla, contador)
+        self.lapiz = lapiz
+        
+
+class Smartwatch(Dispositivo):
+    def __init__(self, marca: str, modelo: str, pantalla: bool, gps: bool, contador):
+        super().__init__(marca, modelo, pantalla, contador)
+        self.gps = gps
+        
+
+
+# Ejemplo de uso
+dispositivos = [
+    Celular("Samsung", "Galaxy S20", True, Contador_Piezas_Cel()),
+    Tablet("Apple", "iPad Pro", True, True, Contador_Piezas_Tab()),
+    Smartwatch("Apple", "Watch Series 6", True, True, Contador_Piezas_Watch())
+]
+
+for d in dispositivos:
+    print(d.contar_piezas())
+
+# Principle that was vulnerated: 1. LSP - 2. OCP 
+
+
+### FINISH ###
+class IUsuario(ABC):
+    @abstractmethod
+    def solicitar_prestamo_libro(self):
+        pass
+
+    @abstractmethod
+    def devolver_libro(self):
+        pass
+
+    @abstractmethod
+    def buscar_libro(self):
+        pass
+
+    @abstractmethod
+    def solicitar_reserva_sala_estudio(self):
+        pass
+
+class Estudiante(IUsuario):
+    def solicitar_prestamo_libro(self):
+        print("Estudiante solicitando préstamo de libro.")
+
+    def devolver_libro(self):
+        print("Estudiante devolviendo libro.")
+
+    def buscar_libro(self):
+        print("Estudiante buscando libro en el catálogo.")
+
+    def solicitar_reserva_sala_estudio(self):
+        raise NotImplementedError("Los estudiantes no pueden reservar salas de estudio.")
+
+class Profesor(IUsuario):
+    def solicitar_prestamo_libro(self):
+        print("Profesor solicitando préstamo de libro.")
+
+    def devolver_libro(self):
+        print("Profesor devolviendo libro.")
+
+    def buscar_libro(self):
+        print("Profesor buscando libro en el catálogo.")
+
+    def solicitar_reserva_sala_estudio(self):
+        print("Profesor solicitando reserva de sala de estudio.")
+
+# Ejemplo de uso
+estudiante = Estudiante()
+profesor = Profesor()
+
+estudiante.solicitar_prestamo_libro()
+estudiante.devolver_libro()
+estudiante.buscar_libro()
+
+profesor.solicitar_prestamo_libro()
+profesor.devolver_libro()
+profesor.buscar_libro()
+profesor.solicitar_reserva_sala_estudio()
+
+
+# Principle that was vulnerated: 1. 
