@@ -17,4 +17,4 @@
           (dif2 (* (dify p1 p2) (dify p1 p2))))
       (sqrt (+ dif1 dif2)))))
 
-(distance2d '(1 . 1) '(2 . 2))
+(distance2d '(1 . 2) '(3 . 4))
