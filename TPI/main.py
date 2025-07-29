@@ -204,25 +204,6 @@ class Servicio:
         # Mostrar con el formato deseado
         print(f"\nOcupado: {str_reservados} (reservado) / Vendido: {str_vendidos}\n")
 
-    #def mostrar_todos_los_asientos(self):
-    # Listas de números
-    #    vendidos = sorted(v.get_numero_asiento() for v in self._ventas)
-    #    reservados = sorted(r.get_numero_asiento() for r in self._reservas)
-
-        # Todos los números de asiento
-        #todos = [a.get_numero() for a in self._unidad.get_asientos()]
-
-        # Libres = no en vendidos ni en reservados
-        #libres = sorted([n for n in todos if n not in vendidos and n not in reservados])
-
-        # Armar strings
-        #str_libres = ", ".join(map(str, libres)) if libres else "ninguno"
-        #str_reservados = ", ".join(map(str, reservados)) if reservados else "ninguno"
-        #str_vendidos = ", ".join(map(str, vendidos)) if vendidos else "ninguno"
-
-        # Mostrar con el formato deseado
-        #print(f"Asientos libres: {str_libres} / Asientos Ocupados: {str_reservados} (reservado) / Asientos Vendidos: {str_vendidos} (vendidos)")
-
    
     def reservar_asiento_servicio(self,nro_asiento: int, pasajero: Pasajero):
         asiento = self._unidad.reservar_asiento(nro_asiento)
@@ -253,9 +234,6 @@ class Servicio:
                 conteo[medio] = 1
 
         return conteo
-        # Mostrar cantidad por cada medio de pago
-        #for medio, cantidad in conteo.items():
-         #   print(f"{medio}: {cantidad} ventas")
 
     def vender_asiento_servicio(self,nro_asiento: int, pasajero: Pasajero, medioPago: 'IMedioPago'):
         asiento = self._unidad.vender_asiento(nro_asiento)
@@ -389,15 +367,6 @@ class Argentur:
         print(f'Cantidades de pagos discriminados por medio de pago:')
         for medio_pago, cant in mapa_ventas_medio_pago.items():
             print(f"Medio de pago: {medio_pago}: {cant}")
-        
-
-
-
-    
-    #def crearItineario(self, ciudad_partida: Ciudad,ciudad_llegada: Ciudad, ciudades_parada : list[Ciudad]):
-     # self.itinerarios.append( Itinerario(ciudad_partida,ciudad_llegada, ciudades_parada) )
-
-
 
 
 
